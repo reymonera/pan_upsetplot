@@ -1,7 +1,10 @@
 import pandas as pd
-from upsetplot import UpSet
+from matplotlib import pyplot as plt
+from upsetplot import UpSet, plot, from_memberships
 
 filepath = "pangenome_upsetplot.csv"
 df = pd.read_csv(filepath)
 
-ax_dict = UpSet(df, subset_size='count').plot()
+upset = from_memberships(df)
+plot(upset, subset_size='count')
+plt.savefig('foo.png')

@@ -28,5 +28,16 @@ df = df.transpose()
 df.columns = df.iloc[0]
 df = df.drop(df.index[0])
 
+# Reset the index
+df = df.reset_index()
+
+# Move the first column to the last position
+cols = df.columns.tolist()
+df = pd.concat([df[cols[1:]], df[cols[0]]], axis=1)
+
+# Show the resulting dataframe
+print(df)
+
+
 # Save the transposed DataFrame to a new CSV file
 df.to_csv("pangenome_upsetplot.csv", index=True)
