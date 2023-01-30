@@ -3,7 +3,7 @@ import pandas as pd
 filepath = "gene_presence_absence.csv"
 
 # Load the CSV file into a pandas DataFrame
-df = pd.read_csv(filepath)
+df = pd.read_csv(filepath, header=0)
 
 # Drop columns 1 and 2
 df = df.drop(df.columns[[1, 2]], axis=1)
@@ -25,7 +25,8 @@ df.insert(0, "Gene", rownames)
 
 # Transpose the DataFrame to switch columns and rows
 df = df.transpose()
-print(df)
+df.columns = df.iloc[0]
+df = df.drop(df.index[0])
 
 # Save the transposed DataFrame to a new CSV file
-df.to_csv("pangenome_upsetplot.csv", index=False)
+df.to_csv("pangenome_upsetplot.csv", index=True)
