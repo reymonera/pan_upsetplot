@@ -19,12 +19,14 @@ print(f"Processing CSV file: {filename}")
 df = pd.read_csv(filename).astype(bool)
 df = df.drop(df.columns[0], axis=1)
 
+# Generate a minimum incidence UpSet Plot
 UpSet(from_indicators(lambda df: df.select_dtypes(bool),
                       data=df),
-      min_subset_size=5, show_counts=True).plot()
+      min_subset_size=100, show_counts=True).plot()
 
-plt.savefig('min_five_incidences.png')
+plt.savefig('min_100_incidences.png')
 
+# Generate a total incidence UpSet Plot
 UpSet(from_indicators(lambda df: df.select_dtypes(bool),
                       data=df),
       show_counts=True).plot()
