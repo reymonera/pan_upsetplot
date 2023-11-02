@@ -16,6 +16,14 @@ Because I need to do stuff to feel relevant and I thought this was it. That bein
 ### What music do you recommend to do pangenomic analysis
 There's a great remix of Pokemon Gym Leader music on YT. Go and find it, you'll feel your soul will elevate from this realm.
 
+## Libraries needed for these scripts to work
+This script basically works with a bunch of libraries because fuck good programming practices. These are the libraries:
+```
+pandas
+matplotlib
+upsetplot
+```
+
 ## To-Do List
 - There's an error appearing when you execute really big .csv files. I'll need to check on that.
 - For now, the minimum of incidences being plotted is determined by the script. I want to parse this through the bash command instead. So yeah.
