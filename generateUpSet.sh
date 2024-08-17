@@ -35,7 +35,7 @@ echo "Minimum incidences taken for the plot: $min_incidences_argument"
 #####
 
 # Search for the gene_presence_absence.csv file in the current directory
-csv_file=$(find . -type f -name "gene_presence_absence.csv" -print -quit)
+csv_file=$(find . -type f -name "collapsed_gene_presence_absence.csv" -print -quit)
 
 if [ -z "$csv_file" ]; then
   echo "gene_presence_absence.csv file not found in the current directory."
@@ -43,7 +43,7 @@ if [ -z "$csv_file" ]; then
 fi
 
 # Execute getDataFrame.py with the found CSV file
-python getDataFrame.py --filename "$csv_file"
+python3 getDataFrame.py --filename "$csv_file"
 
 # Check if the Python script executed successfully
 if [ $? -ne 0 ]; then
@@ -55,7 +55,7 @@ fi
 pan_file=$(find . -type f -name "pangenome_upsetplot.csv" -print -quit)
 
 # Run upsetPlot.py
-python upsetPlot.py --filename "$pan_file" --min_incidences "$min_incidences_argument"
+python3 upsetPlot.py --filename "$pan_file" --min_incidences "$min_incidences_argument"
 
 # Check if the second Python script executed successfully
 if [ $? -ne 0 ]; then

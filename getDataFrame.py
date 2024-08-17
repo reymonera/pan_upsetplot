@@ -30,7 +30,7 @@ rownames = df.iloc[:, 0]
 df = df.drop(df.columns[0], axis=1)
     
 # Replace empty slots with 0 and filled slots with 1
-df = df.applymap(lambda x: 0 if pd.isnull(x) else 1)
+df = df.map(lambda x: 0 if pd.isnull(x) else 1)
 
 # Add the rownames column back to the dataframe
 df.insert(0, "Gene", rownames)
